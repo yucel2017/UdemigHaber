@@ -3,12 +3,13 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, SafeAreaVie
 import React, { useState } from 'react';
 import { auth } from '../../firebaseConfig';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
+import { useNavigation } from '@react-navigation/native'
 
 
 export default function App() {
 
  
+  const navigation = useNavigation();
 
 
   const [newUser, setNewUser] = useState({
@@ -30,6 +31,7 @@ export default function App() {
         const user = userCredential.user;
         // ...
         console.log(user)
+        navigation.navigate('NewsPage'); 
       })
       .catch((error) => {
         const errorCode = error.code;
