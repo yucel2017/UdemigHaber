@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, Image, SafeAreaView, Touchable, TouchableOpacit
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
-
 const WelcomePage = () => {
 
     const navigation = useNavigation();
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor:'#fff'
+        backgroundColor: '#fff'
     },
 
     logo: {
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
     },
 
     butonContainer: {
-        alignItems:'center',
+        alignItems: 'center',
         marginTop: 30,
         gap: 10,
         padding: 5
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
 
     buton1: {
         width: '50%',
-        alignItems:'center',
+        alignItems: 'center',
         backgroundColor: '#708AE8',
         padding: 10,
         borderRadius: 8
@@ -86,7 +85,7 @@ const styles = StyleSheet.create({
 
     buton2: {
         width: '50%',
-        alignItems:'center',
+        alignItems: 'center',
         backgroundColor: '#708AE8',
         padding: 10,
         borderRadius: 8

@@ -1,5 +1,5 @@
 
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, SafeAreaView, Alert } from 'react-native';
 import React, { useState } from 'react';
 import { auth } from '../../firebaseConfig';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -32,12 +32,14 @@ export default function App() {
         // ...
         console.log(user)
         navigation.navigate('NewsPage'); 
+        Alert.alert('Giriş Başarılı')
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
         console.log(errorMessage)
+        Alert.alert('Hata', 'Kullanıcı adı veya Parola yanlış')
       });
 
   }
@@ -72,7 +74,11 @@ export default function App() {
           <Text style={styles.butontxt} >Giriş Yap</Text>
         </TouchableOpacity>
       </View>
-
+      <View style={styles.devamEt} >
+        <TouchableOpacity onPress={() => navigation.navigate('RegisterPage')} >
+          <Text style={styles.devamEttxt} >Kayıt Ol Sayfasına Devam Et >>> </Text>
+        </TouchableOpacity>
+      </View>
     </View>
 
   );
@@ -133,6 +139,14 @@ const styles = StyleSheet.create({
   butontxt: {
     color: '#FAFAFA',
     fontSize: 25,
+  },
+
+  devamEt:{
+    marginTop:15,
+  },
+
+  devamEttxt:{
+    color:'#708AE8',
   },
 
 

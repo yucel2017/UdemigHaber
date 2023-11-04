@@ -1,11 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, Alert } from 'react-native';
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebaseConfig';
+import { useNavigation } from '@react-navigation/native'
 
 
 export default function App() {
+
+  const navigation = useNavigation();
 
   const [newUser, setNewUser] = useState({
     email: '',
@@ -26,6 +29,7 @@ export default function App() {
         const user = userCredential.user;
         // ...
         console.log(user)
+        Alert.alert('Başarılı', 'Kaydınız Tamamlandı Giriş Yapabilirsiniz')
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -63,6 +67,11 @@ export default function App() {
           style={styles.butont}
           onPress={() => handleSignUp()} >
           <Text style={styles.butontxt} >Kayıt ol</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.devamEt} >
+        <TouchableOpacity onPress={() => navigation.navigate('LoginPage')} >
+          <Text style={styles.devamEttxt} >Giriş Yap Sayfasına Devam Et >>> </Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -124,6 +133,14 @@ const styles = StyleSheet.create({
   butontxt: {
     color: '#FAFAFA',
     fontSize: 25,
+  },
+
+  devamEt:{
+    marginTop:15,
+  },
+
+  devamEttxt:{
+    color:'#708AE8',
   },
 
 
