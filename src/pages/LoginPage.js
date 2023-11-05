@@ -1,4 +1,3 @@
-
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, SafeAreaView, Alert } from 'react-native';
 import React, { useState } from 'react';
 import { auth } from '../../firebaseConfig';
@@ -32,7 +31,7 @@ export default function App() {
         // ...
         console.log(user)
         navigation.navigate('NewsPage'); 
-        Alert.alert('Giriş Başarılı')
+        Alert.alert('GirişBaşarılı')
       })
       .catch((error) => {
         const errorCode = error.code;

@@ -36,6 +36,7 @@ export default function App() {
         const errorMessage = error.message;
         // ..
         console.log(errorMessage)
+        Alert.alert('Hata', 'Mail ve Şifreniz ile Kayıt olunuz')
       });
 
   }
